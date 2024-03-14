@@ -12,7 +12,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 
-mongoose.connect(//"mongodb+srv://user_2:Ravi2001@cluster0.spcs4b5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+mongoose.connect(
     `mongodb+srv://ravikanth9166:h9H8tToOXnslbXpZ@cluster0.spcs4b5.mongodb.net/flightSchema`,
  {
     connectTimeoutMS: 60000 
@@ -62,7 +62,7 @@ app.post('/type',function(req,res)
 
     let typeofUser=req.body.name;
     console.log("type:",typeofUser);
-    res.render("rAndL",{typeOfUser:typeofUser});
+    res.render("rAndl",{typeOfUser:typeofUser});
 });
 
 app.post('/rAndl',function(req,res)
