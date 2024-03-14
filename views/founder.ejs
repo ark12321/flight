@@ -1,0 +1,59 @@
+<%- include("partials/header") -%>
+
+    <div class="box" id="heading">
+        <h1>
+            DashBoard
+        </h1>
+    </div>
+
+    <div class="box">
+        <% if (flights && Array.isArray(flights) && flights.length> 0) { %>
+            <form>
+                <% flights.forEach(function(flight) { %>
+                    <div class="flight">
+                        <div textalign="center">
+                            <h2>
+                                <%= flight.name %>
+                            </h2>
+                            <h4> Travel Date:
+                                <%= flight.date %>
+                            </h4>
+                            <h4> Flight Number:
+                                <%= flight.flightNumber %>
+                            </h4>
+                            <h4> Available seats:
+                                <%= 60-flight.seatsBooked %>
+                            </h4>
+                            <% if(flight.seatsBooked===60){%>
+                                <h3>All Seats are Booked </h3>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                    <% }); %>
+                        <% } else { %>
+                            <p>No flights are available to display</p>
+                            <% } %>
+            </form>
+    </div>
+    <div class="box">
+        <header style="text-align: center;">Add New Flight</header>
+        <form action="/addflight" method="post">
+            <div class="flight">
+                <div textalign="center">
+                    <input type="text" placeholder="Flight Name" name="name">
+                    <input type="text" placeholder="Travel Date" name="date">
+                    <input type="text" placeholder="Number of seats" name="seats">
+                    <input type="text" placeholder="Flight Number" name="flightNumber">
+                    <!-- <a href=".login">Forgot password?</a> -->
+                    <input type="submit" class="button" value="Add new Flight">
+                </div>
+            </div>
+            <!-- </form> -->
+        </form>
+    </div>
+
+
+
+
+    <%- include("partials/footer") -%>

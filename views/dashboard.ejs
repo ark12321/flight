@@ -1,0 +1,51 @@
+<%- include("partials/header") -%>
+
+    <div class="box" id="heading">
+        <h1>
+            DashBoard
+        </h1>
+    </div>
+
+    <div class="box">
+        <% if (flights && Array.isArray(flights) && flights.length> 0) { %>
+            <form action="/bookings" method="post">
+                <% flights.forEach(function(flight) { %>
+
+                    <div class="flight">
+
+                        <div textalign="center">
+                            <h2>
+                                <%= flight.name %>
+                            </h2>
+                            <h4> Travel Date:
+                                <%= flight.date %>
+                            </h4>
+                            <h4> Flight Number:
+                                <%= flight.flightNumber %>
+                            </h4>
+                            <h4> Available seats:
+                                <%= 60-flight.seatsBooked %>
+                            </h4>
+                            <% if(flight.seatsBooked===60){%>
+                                <h3>All Seats are Booked </h3>
+                                <% } else { %>
+
+                                    <button type="submit" class="button" value="<%= flight.name %>"
+                                        name="book">BookNow</button>
+
+                                    <% }%>
+                        </div>
+
+                    </div>
+                    <!-- </form> -->
+                    <% }); %>
+                        <% } else { %>
+                            <p>No flights are available to display</p>
+                            <% } %>
+            </form>
+    </div>
+
+
+
+
+    <%- include("partials/footer") -%>

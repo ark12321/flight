@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flight Booking site</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">
+        <%= typeOfUser %>
+    </h1>
+    <!-- <h2>Login as </h2> -->
+    <div class="container">
+        <div class="login form">
+            <header>Login as</header>
+            <form action="/rAndl" method="post">
+
+                <input type="radio" name="action" value="login">
+                <label for="Administrator" class="button">Login</label><br>
+                <input type="radio" name="action" value="register">
+                <label for="Customer" class="button">Register</label><br>
+                <input type="hidden" name="name" value="<%= typeOfUser %>">
+                <input type="submit" value="SUBMIT">
+
+                <!-- <button type="submit" class="button" name="name" value="<%= typeOfUser %>">Login</button>
+                <button type="submit" class="button" name="name" value="<%= typeOfUser %>">Register</button> -->
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
