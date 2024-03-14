@@ -4,6 +4,8 @@ const ejs = require("ejs");
 const bodyparser = require("body-parser");
 
 const app=express();
+const PORT = process.env.PORT || 3000;
+
 
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -207,4 +209,4 @@ app.get("/Failure",async function(req,res)
 
 });
 
-app.listen(3000,function(){console.log("server started...")});
+app.listen(PORT,function(){console.log("server started...")});
