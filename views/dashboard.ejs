@@ -6,9 +6,29 @@
         </h1>
     </div>
 
+
+    <div class="box">
+        <form action="/query" method="post">
+            <input type="radio" name="filterBy" value="filghtNumber">
+            <input type="text" placeholder="Flight Number" name="Name"><br>
+
+            <input type="radio" name="filterBy" value="name">
+            <input type="text" placeholder="Flight Name" name="Name"><br>
+
+            <input type="radio" name="filterBy" value="date">
+            <input type="text" placeholder="Flight Date" name="Name">
+
+            <button type="submit">Filter now</button>
+        </form>
+    </div>
+
+
+
     <div class="box">
         <% if (flights && Array.isArray(flights) && flights.length> 0) { %>
             <form action="/bookings" method="post">
+
+
                 <% flights.forEach(function(flight) { %>
 
                     <div class="flight">

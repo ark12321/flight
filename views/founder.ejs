@@ -8,8 +8,26 @@
 
     <div class="box">
         <% if (flights && Array.isArray(flights) && flights.length> 0) { %>
-            <form>
+            <form action="/sortBy" method="post">
+
+
+                <input type="radio" name="filterBy" value="filghtNumber" onchange="this.form.submit()">
+                <label class="button">Flight Id</label>
+                <input type="radio" name="filterBy" value="name" onchange="this.form.submit()">
+                <label class="button">Flight Name</label>
+                <input type="radio" name="filterBy" value="date" onchange="this.form.submit()">
+                <label class="button">Flight Date</label>
+                <!-- <input type="submit" value="SUBMIT"> -->
+
+                <!-- <select name="filterBy" onchange="this.form.submit()">
+                    <option value="filghtNumber">Flight Id</option>
+                    <option value="name">Flight Name</option>
+                    <option value="date">Flight Date</option>
+                </select> -->
+
                 <% flights.forEach(function(flight) { %>
+
+
                     <div class="flight">
                         <div textalign="center">
                             <h2>
